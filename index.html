@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="light h-full overflow-hidden" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Donations Hub | Sacred Stewardship</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-tertiary-fixed-variant": "#484741",
+                  "tertiary-fixed-dim": "#c9c6bf",
+                  "on-secondary-fixed-variant": "#574500",
+                  "on-primary-fixed": "#002114",
+                  "surface-container-low": "#eef5f7",
+                  "primary-container": "#1b4332",
+                  "on-primary-container": "#86af99",
+                  "on-secondary": "#ffffff",
+                  "error": "#ba1a1a",
+                  "surface-container-highest": "#dde4e6",
+                  "on-tertiary": "#ffffff",
+                  "on-error-container": "#93000a",
+                  "on-primary-fixed-variant": "#274e3d",
+                  "on-surface-variant": "#414844",
+                  "surface-dim": "#d4dbdd",
+                  "surface-container": "#e8eff1",
+                  "primary-fixed": "#c1ecd4",
+                  "on-primary": "#ffffff",
+                  "secondary-fixed": "#ffe088",
+                  "tertiary-container": "#3d3c37",
+                  "on-surface": "#161d1f",
+                  "on-error": "#ffffff",
+                  "on-background": "#161d1f",
+                  "on-secondary-container": "#745c00",
+                  "inverse-surface": "#2b3234",
+                  "surface": "#f4fafd",
+                  "on-tertiary-container": "#a9a69f",
+                  "primary-fixed-dim": "#a5d0b9",
+                  "on-tertiary-fixed": "#1c1c17",
+                  "inverse-on-surface": "#ebf2f4",
+                  "surface-tint": "#3f6653",
+                  "charcoal-haze": "#3D4543",
+                  "primary": "#012d1d",
+                  "gold-leaf": "#C5A028",
+                  "surface-bright": "#f4fafd",
+                  "tertiary": "#272621",
+                  "error-container": "#ffdad6",
+                  "background": "#f4fafd",
+                  "sage-wash": "#E8F0E9",
+                  "surface-variant": "#dde4e6",
+                  "secondary-container": "#fed65b",
+                  "surface-container-lowest": "#ffffff",
+                  "on-secondary-fixed": "#241a00",
+                  "tertiary-fixed": "#e6e2da",
+                  "outline": "#717973",
+                  "inverse-primary": "#a5d0b9",
+                  "outline-variant": "#c1c8c2",
+                  "surface-container-high": "#e2e9ec",
+                  "secondary-fixed-dim": "#e9c349",
+                  "parchment": "#FCF9F5",
+                  "secondary": "#735c00"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "container-max-width": "1280px",
+                  "gutter": "24px",
+                  "margin-mobile": "20px",
+                  "margin-desktop": "64px",
+                  "unit": "8px"
+          },
+          "fontFamily": {
+                  "body-lg": ["Manrope"],
+                  "headline-lg": ["Source Serif 4"],
+                  "body-md": ["Manrope"],
+                  "label-sm": ["Manrope"],
+                  "display-lg": ["Source Serif 4"],
+                  "headline-md": ["Source Serif 4"],
+                  "headline-lg-mobile": ["Source Serif 4"],
+                  "label-md": ["Manrope"]
+          },
+          "fontSize": {
+                  "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                  "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "700"}],
+                  "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                  "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                  "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                  "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    
+    .card-shadow {
+      box-shadow: 0px 8px 32px rgba(1, 45, 29, 0.08);
+    }
+    
+    .islamic-pattern-subtle {
+      background-image: radial-gradient(circle at 1px 1px, rgba(1, 45, 29, 0.03) 1px, transparent 0);
+      background-size: 32px 32px;
+    }
+
+    /* Animated Gradient Background */
+    .animated-bg {
+      background: linear-gradient(-45deg, #E8F0E9, #f4fafd, #FCF9F5, #eef5f7);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Floating Accents */
+    .floating-accents {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .accent-shape {
+      position: absolute;
+      background: currentColor;
+      border-radius: 50%;
+      opacity: 0.1;
+      filter: blur(40px);
+      will-change: transform;
+    }
+
+    @keyframes float {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(30px, -50px) rotate(10deg); }
+      66% { transform: translate(-20px, 20px) rotate(-10deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+  </style>
+</head>
+<body class="animated-bg font-body-md text-on-surface m-0">
+<!-- Floating Background Elements -->
+<div class="floating-accents">
+<div class="accent-shape text-primary-fixed-dim" style="width: 300px; height: 300px; top: -100px; left: -50px; animation: float 25s infinite ease-in-out;"></div>
+<div class="accent-shape text-secondary-fixed-dim" style="width: 400px; height: 400px; bottom: -150px; right: -100px; animation: float 35s infinite ease-in-out reverse;"></div>
+<div class="accent-shape text-tertiary-fixed-dim" style="width: 250px; height: 250px; top: 40%; left: 70%; animation: float 30s infinite ease-in-out;"></div>
+</div>
+<!-- Islamic Pattern Overlay -->
+<div class="fixed inset-0 islamic-pattern-subtle pointer-events-none z-0"></div>
+<!-- Header Section -->
+<header class="relative z-10 text-center mb-6 flex-shrink-0">
+<h1 class="font-label-md text-label-md text-gold-leaf uppercase tracking-[0.25em] mb-1">Donations Hub</h1>
+<p class="font-body-md text-on-surface-variant/80">Select a donations application</p>
+</header>
+<!-- Center Card -->
+<main class="relative z-10 w-full max-w-[340px] px-margin-mobile flex-shrink-0">
+<a class="group block w-full bg-surface-container-lowest rounded-xl overflow-hidden card-shadow transition-all duration-500 hover:shadow-2xl border border-outline-variant/30 flex flex-col" href="https://masajid.work">
+<!-- Reduced Height Image Section -->
+<div class="w-full bg-white flex items-center justify-center h-[20vh] max-h-[180px] p-4 flex-shrink-0">
+<img alt="Serene modern mosque illustration" class="max-w-full max-h-full object-contain transform group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida/ADBb0ujFNRqzTPyAsy0ivWJ7si45yva2rOzw5oU5jHiKuu8rW-RA12Mrn0rj0KQMUCCbhGpJbOrhD4tnuUkOL5fmmuTHroXMzFsBLjyhSdc_fyx5A-3ioDr49Mgai_tNASI6kl4KA9f_RWKR-oV4lfn9_t2006fpfjnJgmYHXkDy4KVk0M0_nB787I3A399kra6Bx6w1ksgPk8An84qS3Ekj1C5Bu0P4PKhohfK5OK1wxsUHduaFQSi_y4TrBA"/>
+</div>
+<!-- Compact Content Section -->
+<div class="text-center p-5 pb-6">
+<div class="flex flex-col items-center mb-2">
+<span class="text-primary font-headline-md text-2xl mb-0" dir="rtl">مساجد</span>
+<h2 class="font-headline-lg text-primary tracking-tight text-2xl -mt-1">Masajid</h2>
+</div>
+<p class="font-body-md text-on-surface-variant leading-tight px-2 mb-6 text-sm">
+        Physical donations for mosques and Islamic facilities
+      </p>
+<!-- Professional Action Button -->
+<div class="inline-flex items-center justify-center gap-2 w-full py-3 px-6 rounded-lg bg-primary text-on-primary font-label-md transition-all group-hover:bg-primary-container group-hover:text-on-primary-container">
+<span class="uppercase tracking-wider">Open Masajid</span>
+<span class="material-symbols-outlined text-[18px] transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</a>
+</main>
+<!-- Footer Section -->
+<footer class="relative z-10 mt-8 flex-shrink-0">
+<p class="font-label-sm text-on-surface-variant/40 tracking-[0.15em] uppercase text-[10px]">
+      Sacred Stewardship Ecosystem
+    </p>
+</footer>
+<script>
+  // Ensuring smooth performance for background elements
+  document.addEventListener('DOMContentLoaded', () => {
+    const shapes = document.querySelectorAll('.accent-shape');
+    shapes.forEach(shape => {
+      // Small random starting offsets for more organic look
+      const delay = Math.random() * -20;
+      shape.style.animationDelay = `${delay}s`;
+    });
+  });
+</script>
+</body></html>
