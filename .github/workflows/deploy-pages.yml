@@ -27,7 +27,7 @@ jobs:
       - name: Prepare site
         run: |
           mkdir _site
-          cp index.html _site/
+          cp index.html masajid-mosque-illustration.png _site/
           touch _site/.nojekyll
 
       - name: Setup Pages

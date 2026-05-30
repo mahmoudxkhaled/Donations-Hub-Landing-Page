@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html class="light h-full overflow-hidden" lang="en"><head>
+<html class="light h-full" lang="ar" dir="rtl"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-<title>Donations Hub | Sacred Stewardship</title>
+<title>مركز التبرعات | الإدارة المقدسة</title>
 <!-- Material Symbols -->
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <!-- Google Fonts -->
@@ -164,12 +164,52 @@
 
     body {
       height: 100vh;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       position: relative;
+    }
+
+    .lang-switcher {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      left: auto;
+      z-index: 50;
+    }
+
+    .lang-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      right: 0;
+      left: auto;
+      min-width: 140px;
+    }
+
+    .lang-switcher.is-open .lang-menu {
+      display: block;
+    }
+
+    .lang-option.is-active {
+      background-color: rgba(1, 45, 29, 0.08);
+      color: #012d1d;
+      font-weight: 600;
+    }
+
+    [dir="rtl"] .arrow-icon {
+      transform: scaleX(-1);
+    }
+
+    [dir="rtl"] .group:hover .arrow-icon {
+      transform: scaleX(-1) translateX(-0.25rem);
+    }
+
+    [dir="ltr"] .group:hover .arrow-icon {
+      transform: translateX(0.25rem);
     }
   </style>
 </head>
@@ -182,47 +222,154 @@
 </div>
 <!-- Islamic Pattern Overlay -->
 <div class="fixed inset-0 islamic-pattern-subtle pointer-events-none z-0"></div>
+<!-- Language Switcher -->
+<div class="lang-switcher" id="lang-switcher">
+<button aria-expanded="false" aria-haspopup="listbox" aria-label="Change language" class="flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm border border-outline-variant/30 card-shadow text-on-surface hover:bg-surface-container-low transition-colors" id="lang-toggle" type="button">
+<span class="material-symbols-outlined text-[22px]">language</span>
+</button>
+<ul aria-label="Languages" class="lang-menu py-1 bg-surface-container-lowest rounded-lg border border-outline-variant/30 card-shadow overflow-hidden" id="lang-menu" role="listbox">
+<li><button class="lang-option w-full text-start px-4 py-2.5 text-sm text-on-surface hover:bg-surface-container-low transition-colors" data-lang="ar" role="option" type="button">العربية</button></li>
+<li><button class="lang-option w-full text-start px-4 py-2.5 text-sm text-on-surface hover:bg-surface-container-low transition-colors" data-lang="en" role="option" type="button">English</button></li>
+</ul>
+</div>
 <!-- Header Section -->
 <header class="relative z-10 text-center mb-6 flex-shrink-0">
-<h1 class="font-label-md text-label-md text-gold-leaf uppercase tracking-[0.25em] mb-1">Donations Hub</h1>
-<p class="font-body-md text-on-surface-variant/80">Select a donations application</p>
+<h1 class="font-label-md text-label-md text-gold-leaf uppercase tracking-[0.25em] mb-1" data-i18n="siteTitle">مركز التبرعات</h1>
+<p class="font-body-md text-on-surface-variant/80" data-i18n="siteSubtitle">اختر تطبيق التبرعات</p>
 </header>
 <!-- Center Card -->
-<main class="relative z-10 w-full max-w-[340px] px-margin-mobile flex-shrink-0">
-<a class="group block w-full bg-surface-container-lowest rounded-xl overflow-hidden card-shadow transition-all duration-500 hover:shadow-2xl border border-outline-variant/30 flex flex-col" href="https://masajid.work">
-<!-- Reduced Height Image Section -->
-<div class="w-full bg-white flex items-center justify-center h-[20vh] max-h-[180px] p-4 flex-shrink-0">
-<img alt="Serene modern mosque illustration" class="max-w-full max-h-full object-contain transform group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida/ADBb0ujFNRqzTPyAsy0ivWJ7si45yva2rOzw5oU5jHiKuu8rW-RA12Mrn0rj0KQMUCCbhGpJbOrhD4tnuUkOL5fmmuTHroXMzFsBLjyhSdc_fyx5A-3ioDr49Mgai_tNASI6kl4KA9f_RWKR-oV4lfn9_t2006fpfjnJgmYHXkDy4KVk0M0_nB787I3A399kra6Bx6w1ksgPk8An84qS3Ekj1C5Bu0P4PKhohfK5OK1wxsUHduaFQSi_y4TrBA"/>
+<main class="relative z-10 w-full max-w-[400px] px-margin-mobile flex-shrink-0">
+<a class="group block w-full bg-surface-container-lowest rounded-xl overflow-hidden card-shadow transition-all duration-500 hover:shadow-2xl border border-outline-variant/30 flex flex-col" href="https://masajid.work" rel="noopener noreferrer" target="_blank">
+<!-- Image Section -->
+<div class="w-full bg-white flex items-center justify-center min-h-[220px] h-[38vh] max-h-[300px] p-3 flex-shrink-0">
+<img alt="" class="max-w-full max-h-full object-contain transform group-hover:scale-105 transition-transform duration-700" data-i18n-alt="cardImageAlt" src="masajid-mosque-illustration.png"/>
 </div>
 <!-- Compact Content Section -->
 <div class="text-center p-5 pb-6">
 <div class="flex flex-col items-center mb-2">
-<span class="text-primary font-headline-md text-2xl mb-0" dir="rtl">مساجد</span>
-<h2 class="font-headline-lg text-primary tracking-tight text-2xl -mt-1">Masajid</h2>
+<span class="text-primary font-headline-md text-2xl mb-0" data-i18n="cardTitlePrimary">مساجد</span>
+<h2 class="font-headline-lg text-primary tracking-tight text-2xl -mt-1" data-i18n="cardTitleSecondary">Masajid</h2>
 </div>
-<p class="font-body-md text-on-surface-variant leading-tight px-2 mb-6 text-sm">
-        Physical donations for mosques and Islamic facilities
+<p class="font-body-md text-on-surface-variant leading-tight px-2 mb-6 text-sm" data-i18n="cardDescription">
+        التبرعات العينية للمساجد والمرافق الإسلامية
       </p>
 <!-- Professional Action Button -->
 <div class="inline-flex items-center justify-center gap-2 w-full py-3 px-6 rounded-lg bg-primary text-on-primary font-label-md transition-all group-hover:bg-primary-container group-hover:text-on-primary-container">
-<span class="uppercase tracking-wider">Open Masajid</span>
-<span class="material-symbols-outlined text-[18px] transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
+<span class="uppercase tracking-wider" data-i18n="cardAction">استكشف المزيد</span>
+<span class="material-symbols-outlined text-[18px] arrow-icon transition-transform">arrow_forward</span>
 </div>
 </div>
 </a>
 </main>
 <!-- Footer Section -->
 <footer class="relative z-10 mt-8 flex-shrink-0">
-<p class="font-label-sm text-on-surface-variant/40 tracking-[0.15em] uppercase text-[10px]">
-      Sacred Stewardship Ecosystem
+<p class="font-label-sm text-on-surface-variant/40 tracking-[0.15em] uppercase text-[10px]" data-i18n="footer">
+      منظومة الإدارة المقدسة
     </p>
 </footer>
 <script>
-  // Ensuring smooth performance for background elements
+  const translations = {
+    ar: {
+      pageTitle: 'مركز التبرعات | الإدارة المقدسة',
+      siteTitle: 'مركز التبرعات',
+      siteSubtitle: 'اختر تطبيق التبرعات',
+      cardImageAlt: 'رسم توضيحي لمسجد بقبة خضراء ومئذنة وفناء',
+      cardTitlePrimary: 'مساجد',
+      cardTitleSecondary: 'Masajid',
+      cardDescription: 'التبرعات العينية للمساجد والمرافق الإسلامية',
+      cardAction: 'استكشف المزيد',
+      footer: 'منظومة الإدارة المقدسة',
+      langToggleLabel: 'تغيير اللغة'
+    },
+    en: {
+      pageTitle: 'Donations Hub | Sacred Stewardship',
+      siteTitle: 'Donations Hub',
+      siteSubtitle: 'Select a donations application',
+      cardImageAlt: 'Isometric illustration of a mosque with green dome, minaret, and courtyard',
+      cardTitlePrimary: 'مساجد',
+      cardTitleSecondary: 'Masajid',
+      cardDescription: 'Physical donations for mosques and Islamic facilities',
+      cardAction: 'Explore More',
+      footer: 'Sacred Stewardship Ecosystem',
+      langToggleLabel: 'Change language'
+    }
+  };
+
+  const DEFAULT_LANG = 'ar';
+  const STORAGE_KEY = 'donations-hub-lang';
+
+  function getStoredLang() {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored === 'en' || stored === 'ar' ? stored : DEFAULT_LANG;
+  }
+
+  function setLanguage(lang) {
+    const strings = translations[lang];
+    if (!strings) return;
+
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.title = strings.pageTitle;
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (strings[key] !== undefined) el.textContent = strings[key];
+    });
+
+    document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+      const key = el.getAttribute('data-i18n-alt');
+      if (strings[key] !== undefined) el.alt = strings[key];
+    });
+
+    document.getElementById('lang-toggle').setAttribute('aria-label', strings.langToggleLabel);
+
+    document.querySelectorAll('.lang-option').forEach(btn => {
+      const isActive = btn.dataset.lang === lang;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    localStorage.setItem(STORAGE_KEY, lang);
+  }
+
+  function initLanguageSwitcher() {
+    const switcher = document.getElementById('lang-switcher');
+    const toggle = document.getElementById('lang-toggle');
+    const menu = document.getElementById('lang-menu');
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = switcher.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    menu.querySelectorAll('.lang-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setLanguage(btn.dataset.lang);
+        switcher.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', () => {
+      switcher.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        switcher.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
+    setLanguage(getStoredLang());
+    initLanguageSwitcher();
+
     const shapes = document.querySelectorAll('.accent-shape');
     shapes.forEach(shape => {
-      // Small random starting offsets for more organic look
       const delay = Math.random() * -20;
       shape.style.animationDelay = `${delay}s`;
     });
